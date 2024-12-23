@@ -1,15 +1,12 @@
 # Stage 1: Install Dependencies
-FROM maven:3.8.7-openjdk-11 AS dependencies
+FROM maven:3.8.8-eclipse-temurin-11 AS dependencies
 
-# Set working directory
 WORKDIR /app
-
-# Copy pom.xml and download dependencies
 COPY pom.xml .
 RUN mvn dependency:go-offline
 
 # Stage 2: Build Application
-FROM maven:3.8.7-openjdk-11 AS build
+FROM maven:3.8.8-eclipse-temurin-11 AS build
 
 WORKDIR /app
 COPY --from=dependencies /root/.m2 /root/.m2
