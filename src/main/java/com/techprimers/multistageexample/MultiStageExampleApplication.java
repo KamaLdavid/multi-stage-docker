@@ -1,12 +1,13 @@
 package com.techprimers.multistageexample;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@RestController
-public class HomeController {
-    @GetMapping("/")
-    public String home() {
-        return "Welcome to the application!";
-    }
+@SpringBootApplication
+public class MultiStageExampleApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(MultiStageExampleApplication.class, args);
+	}
+
 }
