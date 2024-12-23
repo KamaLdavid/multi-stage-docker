@@ -18,4 +18,9 @@ FROM openjdk:11-jre-slim
 
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
+
+# Expose port 8050
+EXPOSE 8050
+
+# Run the application
 ENTRYPOINT ["java", "-jar", "app.jar", "--server.port=8050"]
